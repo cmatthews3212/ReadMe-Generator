@@ -45,7 +45,7 @@ inquirer.prompt([
     {
         type: 'input',
         message: questions[5],
-        name: 'contributers',
+        name: 'contributors',
     },
     {
         type: 'input',
@@ -65,10 +65,41 @@ inquirer.prompt([
 ])
 .then((response) => {
     console.log(response)
+    writeToFile(response)
 })
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(data) {
+const fileContent = `
+# ${data.title}
+
+## Description
+${data.description}
+
+## Installation
+${data.installation}
+
+## Usage
+${data.usage}
+
+## Licenses
+${data.licenses}
+
+## Contributors
+${data.contributors}
+
+## Testing
+${data.testing}
+
+## Contact info for Questions
+<a href="https://github.com/${data.username}">${data.username}</a>
+
+<a href="mailto: ${data.email}">${data.email}</a>`
+
+
+    fs.writeFile('README.md', fileContent, (err) =>
+    err ? console.error(err) : console.log('Success!') )
+}
 
 // TODO: Create a function to initialize app
 function init() {}
