@@ -73,6 +73,15 @@ function writeToFile(data) {
 const fileContent = `
 # ${data.title}
 
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Licenses](#licenses)
+- [Contributors](#contributors)
+- [Testing](#testing)
+- [Contact](#contact-info-for-questions)
+
 ## Description
 ${data.description}
 
