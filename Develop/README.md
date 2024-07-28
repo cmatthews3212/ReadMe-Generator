@@ -1,25 +1,27 @@
 
-# Title
+# title
 
 ## Description
 description
 
 ## Installation
-Installation
+installation
 
 ## Usage
-Usage
+usage
 
 ## Licenses
-1,2
+2,3
 
 ## Contributors
-Contributors
+contributors
 
 ## Testing
 testing
 
 ## Contact info for Questions
+Github: 
 <a href="https://github.com/cmatthews3212">cmatthews3212</a>
 
-<a href="mailto: matthews.christinemarie@gmail.com">matthews.christinemarie@gmail.com</a>
+Email: 
+<a href="mailto: candreola@moody.edu">candreola@moody.edu</a>
