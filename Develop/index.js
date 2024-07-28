@@ -92,10 +92,10 @@ ${data.contributors}
 ${data.testing}
 
 ## Contact info for Questions
-Github: 
+#### Github: 
 <a href="https://github.com/${data.username}">${data.username}</a>
 
-Email: 
+#### Email: 
 <a href="mailto: ${data.email}">${data.email}</a>`
 
 
