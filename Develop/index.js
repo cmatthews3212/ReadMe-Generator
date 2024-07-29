@@ -43,28 +43,9 @@ inquirer.prompt([
         type: 'list',
         message: questions[4],
         name: 'licenses',
-        choices: [
-            {
-                name: 'MIT License',
-                value: 'MIT',
-                description: 'The MIT License is an older license used to provide copyright protection.'
-            }, 
-            {
-                name: 'Mozilla Public License',
-                value: 'Mozilla',
-                description: 'The Mozilla Public License is used by Mozilla and Firefox. It provides copywrite protection and can be used in commercial applications.'
-            }, 
-            {
-                name: 'Microsoft Public License',
-                value: 'Microsoft',
-                description: 'The Microsoft derives code that can be destributed for both commercial and non-commercial use. Any code that is redistributed must included a complete copy of the Microsoft Public License.'
-            }, 
-            {
-                name: 'Eclipse Public License',
-                value: 'Eclipse',
-                description: 'The Eclipse Public License is a newer version of the Common Public License, which allows it to be more acceptable to business.'
-            }
-        ]
+        choices: ['MIT License', 'Mozilla Public License', 'Microsoft Public LIcense', 'Eclipse Public License', 'None'
+        ],
+        
     },
     {
         type: 'input',
@@ -90,10 +71,27 @@ inquirer.prompt([
 .then((response) => {
     console.log(response)
     writeToFile(response)
+   
 })
+
+
 
 // TODO: Create a function to write README file
 function writeToFile(data) {
+    let license = data.licenses
+    let description
+         if (data.licenses == 'MIT License') {
+            description = 'The MIT License is an older license used to provide copyright protection.';
+        } else if (data.licenses == 'Mozilla Public License') {
+            description = 'The Mozilla Public License is used by Mozilla and Firefox. It provides copywrite protection and can be used in commercial applications.';
+        } else if (data.licenses == 'Microsoft Public LIcense') {
+            description = 'The Microsoft derives code that can be destributed for both commercial and non-commercial use. Any code that is redistributed must included a complete copy of the Microsoft Public License.';
+        } else if (data.licenses == 'Eclipse Public License') {
+            description = 'The Eclipse Public License is a newer version of the Common Public License, which allows it to be more acceptable to business.';
+        } else if (data.licenses == 'None') {
+            license = '';
+            description = 'Please refer to the LICENSE in the repo.';
+        }
 const fileContent = `
 # ${data.title}
 
@@ -116,7 +114,8 @@ ${data.installation}
 ${data.usage}
 
 ## Licenses
-${data.licenses.description}
+#### ${license}
+${description}
 
 ## Contributors
 ${data.contributors}
