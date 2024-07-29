@@ -1,6 +1,9 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+// import {select, Separator} from '@inquirer/prompts'
+
+console.log(process.argv[1])
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -37,10 +40,31 @@ inquirer.prompt([
         name: 'usage',
     },
     {
-        type: 'checkbox',
+        type: 'list',
         message: questions[4],
         name: 'licenses',
-        choices: ['1', '2', '3']
+        choices: [
+            {
+                name: 'MIT License',
+                value: 'MIT',
+                description: 'The MIT License is an older license used to provide copyright protection.'
+            }, 
+            {
+                name: 'Mozilla Public License',
+                value: 'Mozilla',
+                description: 'The Mozilla Public License is used by Mozilla and Firefox. It provides copywrite protection and can be used in commercial applications.'
+            }, 
+            {
+                name: 'Microsoft Public License',
+                value: 'Microsoft',
+                description: 'The Microsoft derives code that can be destributed for both commercial and non-commercial use. Any code that is redistributed must included a complete copy of the Microsoft Public License.'
+            }, 
+            {
+                name: 'Eclipse Public License',
+                value: 'Eclipse',
+                description: 'The Eclipse Public License is a newer version of the Common Public License, which allows it to be more acceptable to business.'
+            }
+        ]
     },
     {
         type: 'input',
@@ -92,7 +116,7 @@ ${data.installation}
 ${data.usage}
 
 ## Licenses
-${data.licenses}
+${data.licenses.description}
 
 ## Contributors
 ${data.contributors}
